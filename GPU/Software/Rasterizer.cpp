@@ -879,7 +879,7 @@ void TriangleEdge<useSSE4>::NarrowMinMaxX(const Vec4<int> &w, int64_t minX, int6
 	if (wmax < 0) {
 		if (stepX.x > 0) {
 			int steps = -wmax / stepX.x;
-			rowMinX = std::max(rowMinX, minX + steps * SCREEN_SCALE_FACTOR * 2);
+			rowMinX = std::max(rowMinX, minX + steps * SCREEN_SCALE_FACTOR * 2ULL);
 		} else if (stepX.x <= 0) {
 			rowMinX = rowMaxX + 1;
 		}
@@ -887,7 +887,7 @@ void TriangleEdge<useSSE4>::NarrowMinMaxX(const Vec4<int> &w, int64_t minX, int6
 
 	if (wmax >= 0 && stepX.x < 0) {
 		int steps = (-wmax / stepX.x) + 1;
-		rowMaxX = std::min(rowMaxX, minX + steps * SCREEN_SCALE_FACTOR * 2);
+		rowMaxX = std::min(rowMaxX, minX + steps * SCREEN_SCALE_FACTOR * 2ULL);
 	}
 }
 
